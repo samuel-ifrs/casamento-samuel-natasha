@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+}
+body.principal {
+  background-image: url('imagens/background.jpg');
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-color: #0c0e03;
+}
+
+body {
+  font-family: 'Tinos',serif;
+  color: white;
+  padding: 10px;
+  user-select: none;
+}
+
+#conteudos {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  position: relative;
+}
+
+#titulo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px;
+}
+#barraTitulo {
+  text-align: center;
+}
+#nomes > * {
+  display: block;
+}
+#nomes {
+  margin-right: auto;
+  font-family: 'Tinos',serif;
+  font-size: 35pt;
+  font-weight: 100;
+  line-height: 1;
+}
+
+#tituloE {
+    font-size: 120px;
+    text-align: center;
+    line-height: 97px;
+    color: #fbecb0;
+    font-family: 'Playfair Display',serif;
+    margin-left: auto;
+}
+
+#conteudo {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  position: relative;
+}
+
+@keyframes aparece {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+#cronometro {
+  animation: aparece 500ms;
+  font-size: 20px;
+}
+
+#barraPaginas {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding: 15px;
+  text-align: center;
+}
+#barraPaginas a {
+  color: white !important;
+  text-decoration: none;
+  margin: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+  transition: color 200ms;
+}
+
+#barraPaginas a.selecionado {
+  color: #ffd700 !important;
+}
+
+#dataCasamento {
+  letter-spacing: 8px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 25px;
+  font-family: 'Tinos',serif;
+  font-size: 25px;
+  margin-bottom: 25px;
+}

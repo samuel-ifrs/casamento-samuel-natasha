@@ -1,0 +1,109 @@
+ 
+  <style>
+    .slider .botoes {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+    }
+    .slider .botoes div {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .slider .botoes div:last-of-type {
+      justify-content: flex-end;
+    }
+    .slider .botoes span {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      border-left: 3px solid;
+      border-top: 3px solid;
+      transition: border-color 200ms;
+      border-color: white;
+    }
+    .slider .botoes div:hover span {
+      border-color: #ffd700;
+    }
+    .slider .botoes .voltar {
+      transform: rotate(-45deg);
+    }
+    .slider .botoes .avancar {
+      transform: rotate(135deg);
+    }
+    .slider .imagens {
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+    }
+    .slider .imagens .img {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      top: 0;
+      height: 500px;
+    }
+    .slider .imagens .img > img {
+      top: 0;
+      height: 100%;
+    }
+    .slider .imagens .img .back {
+      position: absolute;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      z-index: 0;
+      width: 100%;
+      filter: blur(5px);
+    }
+    .slider .imagens .img .front {
+      object-fit: contain;
+      position: relative;
+      z-index: 5;
+      padding: 5px;
+    }
+    .slider .imagens .img {
+      transition: left 500ms;
+    }
+  </style>
+  
+  
+  <div class="slider">
+    <div class="imagens">
+      
+    </div>
+    <div class="botoes">
+      <div class="back"><span class="voltar"></span></div>
+      <div class="next"><span class="avancar"></span></div>
+    </div>
+  </div>
+  
+  <script>
+    let curFoto = 1;
+    for(let foto=1;foto<=8;foto++){
+      $(".slider .imagens").append(
+        $("<div class='img' img='"+foto+"'></div>").css('left', (foto-1) + '00%')
+          .append($("<img class='back'></img>").attr('src', 'imagens/slider/home(' + foto + ').jpg'))
+          .append($("<img class='front'></img>").attr('src', 'imagens/slider/home(' + foto + ').jpg')));
+    }
+    $(".botoes .back").click(()=>{
+      curFoto--;
+      goToPic(curFoto);
+    });
+    $(".botoes .next").click(()=>{
+      curFoto++;
+      goToPic(curFoto);
+    });
+    function goToPic(ind){
+      for(let foto=1;foto<=8;foto++){
+        $(".img[img='"+foto+"']").css('left', (foto-ind) + '00%');
+      }
+    }
+  </script>
